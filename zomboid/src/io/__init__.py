@@ -1,27 +1,20 @@
 from pathlib import Path
 from typing import List, Iterable
-from src.io.reader_model import ReaderModel
+from src.io.printer_model import PrinterModel
 from src.io.csv_reader import CSVReader
-from src.io.model import DataModel
+from src.io.file_reader import AbstractReader
+from src.io.model import DataModel, get_dict_data_models
 
 
 
 class Zomboid:
-    def __init__(self, reader: CSVReader, skip: int, take: int):
-        self.reader = reader
-        self.skip = skip
-        self.take = take
-
+    def __init__(self, source_model: list[DataModel], dic_model: dict[str, int] = None):
+        self.data_model = source_model
+        self.dic_model = dic_model if dic_model is None else get_dict_data_models()
+        
     def print_models(self):
-        reader = ReaderModel(
-            self.reader.read(), 
-            self.reader.dic_data, 
-            self.skip, self.take
+        reader = PrinterModel(
+            self.data_model, 
+            self.dic_model, 
             )
         reader.print()
-        
-    def set_skip(self, skip: int):
-        self.skip = skip
-
-    def set_take(self, take: int):
-        self.take = take

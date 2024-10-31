@@ -8,17 +8,6 @@ class CSVReader(AbstractReader):
     def __init__(self, path: Path):
         self.path: Path = path
         self.dic_data: dict[str, int] = {}
-
-    #def dic_data_model(self) -> dict[str, int]:
-    #    with open(self.path) as file:
-    #        dictionary_models = {}
-    #        file_lines = csv.reader(file)
-    #        head = next(file_lines)
-    #        i = 0
-    #        for item in head:
-    #            dictionary_models[item] = i
-    #            i+=1
-    #        return dictionary_models
     
     def read(self) -> list[DataModel]:
         result: list[DataModel] = []
@@ -36,3 +25,6 @@ class CSVReader(AbstractReader):
                                  amount=row[self.dic_data["amount"]])
                 result.append(data)
             return result
+        
+    def get_header(self) -> dict[str, int]:
+        return self.dic_data
