@@ -4,7 +4,7 @@ from src.io.file_reader import AbstractReader
 from src.io.model import DataModel
 
 
-class XmlReader(AbstractReader):
+class XMLReader(AbstractReader):
     def __init__(self, path: Path, root: str = "Item"):
         self.path: Path = path
         self.dic_header: dict[str, int] = {}
