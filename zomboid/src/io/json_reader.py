@@ -7,7 +7,7 @@ from src.io.model import DataModel
 class JSONReader(AbstractReader):
     def __init__(self, path: Path):
         self.path = path
-        self.dic_header = {}
+        self.dic_header: dict[str, int] = {}
         
     def read(self) -> list[DataModel]:
         with open(self.path) as file:
