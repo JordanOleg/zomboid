@@ -11,7 +11,7 @@ class SeparatorModel:
         list_models = []
         skip_model = self.skip
         take_model = self.take
-        for item in self.data_model:
+        for item in self.data_models:
             if skip_model != 0:
                 skip_model -= 1
                 continue

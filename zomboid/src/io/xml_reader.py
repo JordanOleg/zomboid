@@ -21,7 +21,9 @@ class XMLReader(AbstractReader):
 
         for item in root.findall(self.tree_root):
             item_data = {child.tag: child.text for child in item}
-            items.append(DataModel(**item_data))
+            items.append(DataModel(id=int(item_data["id"]), name=item_data["name"], 
+                                   condition=item_data["condition"], type_object=item_data["type_object"], 
+                                   amount=int(item_data["amount"])))
         return items
     
     def get_header(self) -> dict[str, int]:

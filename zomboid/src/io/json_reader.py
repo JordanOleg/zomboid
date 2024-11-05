@@ -14,10 +14,19 @@ class JSONReader(AbstractReader):
             items_data: list[dict[str, object]] = json.load(file)
             if not items_data:
                 return []
+
             dic_data: dict[str, object] = items_data[0]
-            zip_data = zip(dic_data.keys(), range(len(dic_data.keys())))
-            self.dic_header = dict(zip_data)
-            items = [DataModel(**item) for item in items_data]
+            self.dic_header = {key: idx for idx, key in enumerate(dic_data.keys())}
+
+            items = [
+                DataModel(
+                    id=int(item['id']),
+                    name=item['name'],
+                    type_object=item['type_object'],
+                    condition=item['condition'],
+                    amount=int(item['amount'])
+                ) for item in items_data
+            ]
         return items
     
     def get_header(self) -> dict[str, int]:

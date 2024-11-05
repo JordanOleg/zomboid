@@ -20,9 +20,9 @@ class CSVReader(AbstractReader):
                 self.dic_header[item] = i
                 i+=1
             for row in spam_reader:
-                data = DataModel(id=row[self.dic_header["id"]], name=row[self.dic_header["name"]],
-                                 type_object=row[self.dic_header["type"]], condition=row[self.dic_header["condition"]], 
-                                 amount=row[self.dic_header["amount"]])
+                data = DataModel(id=int(row[self.dic_header["id"]]), name=row[self.dic_header["name"]],
+                                 type_object=row[self.dic_header["type_object"]], condition=row[self.dic_header["condition"]], 
+                                 amount=int(row[self.dic_header["amount"]]))
                 result.append(data)
             return result
         
