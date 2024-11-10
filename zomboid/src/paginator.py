@@ -1,7 +1,7 @@
-from src.io.model import DataModel
+from src.model import DataModel
 
 
-class SeparatorModel:
+class Paginator:
     def __init__(self, source_models: list[DataModel], skip: int, take: int):
         self.data_models: list[DataModel] = source_models
         self.skip: int = skip

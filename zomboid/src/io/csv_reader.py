@@ -1,6 +1,6 @@
 import csv
 from pathlib import Path
-from src.io.model import DataModel
+from src.model import DataModel
 from src.io.file_reader import AbstractReader
 
 

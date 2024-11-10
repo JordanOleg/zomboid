@@ -1,15 +1,14 @@
 from pathlib import Path
-from src.io import Zomboid
-from src.io.csv_reader import CSVReader
-from src.io.json_reader import JSONReader
-from src.io.separator_model import SeparatorModel
+from src import Zomboid
+from src.context import Context
+from src.paginator import Paginator
 
 if __name__ == "__main__":
-    paths = Path("C:/Users/jorda/Desktop/Zomboid/zomboid/.data/json_model.json")
-    reader = JSONReader(paths)
+    paths = Path("zomboid/.data/model.json")
+    context = Context(paths)
+    reader = context.get_reader()
     data_model = reader.read()
-    print(data_model)
-    separator = SeparatorModel(source_models=data_model, skip=2, take=4)
+    separator = Paginator(source_models=data_model, skip=0, take=4)
     models = separator.get_models()
-    reader = Zomboid(models) # Zomboid(models, reader.get_header())
+    reader = Zomboid(models)
     reader.print_models()

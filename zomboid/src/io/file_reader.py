@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from pathlib import Path
-from src.io.model import DataModel
+from src.model import DataModel
 
 class AbstractReader(ABC):
 

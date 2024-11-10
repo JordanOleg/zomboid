@@ -1,7 +1,7 @@
 from xml.etree import ElementTree
 from pathlib import Path
 from src.io.file_reader import AbstractReader
-from src.io.model import DataModel
+from src.model import DataModel
 
 
 class XMLReader(AbstractReader):

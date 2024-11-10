@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
 from src.io.file_reader import AbstractReader
-from src.io.model import DataModel
+from src.model import DataModel
 
 
 class JSONReader(AbstractReader):

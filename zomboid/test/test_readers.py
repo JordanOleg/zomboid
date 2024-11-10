@@ -1,5 +1,5 @@
 from pathlib import Path
-from src.io.model import DataModel
+from zomboid.src.model import DataModel
 from src.io.csv_reader import CSVReader
 from src.io.json_reader import JSONReader
 from src.io.xml_reader import XMLReader
